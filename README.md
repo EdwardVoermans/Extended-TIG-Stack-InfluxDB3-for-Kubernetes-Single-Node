@@ -221,3 +221,7 @@ For issues and questions:
 
 ## License
 This project builds upon MIT license.
+
+---
+
+*If this project saves you time or helps you prototype faster, please ⭐ star the repo or open an issue/PR — contributions and feedback are always welcome!*
