@@ -13,8 +13,8 @@ A fully functional monitoring stack running on K3s with:
 - HTTPS access via Traefik ingress (with self-signed certificates)
 
 ## Alternative versions:
-- Looking for the Docker version? Check: https://tinyurl.com/5n8ydsr4
-- Looking for the multi-node Kubernetes version? Check: https://tinyurl.com/3889hkvr
+- Looking for the **Docker version?** Check: https://tinyurl.com/5n8ydsr4
+- Looking for the **multi-node Kubernetes version?** Check: https://tinyurl.com/3889hkvr
 
 ## Prerequisites
 
