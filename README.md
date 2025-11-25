@@ -34,7 +34,7 @@ This deployment creates three Persistent Volume Claims (PVCs) to preserve your d
 
 By default, K3s stores PVC data in cryptically named directories under `/var/lib/kubelet/pods/`. To keep things organized, we'll configure a custom storage location at `/data/k3s-pvc`.
 
-** Detailed Instructions:** See the [Custom Storage Class Configuration Guide](./CUSTOM_STORAGE_CLASS.md) for complete setup steps.
+**Detailed Instructions:** See the [Custom Storage Class Configuration Guide](./CUSTOM_STORAGE_CLASS.md) for complete setup steps.
 
 **Quick Summary:**
 ```bash
