@@ -12,6 +12,10 @@ A fully functional monitoring stack running on K3s with:
 - Persistent storage that survives pod restarts
 - HTTPS access via Traefik ingress (with self-signed certificates)
 
+## Alternative versions:
+- Looking for the Docker version? Check: https://tinyurl.com/5n8ydsr4
+- Looking for the multi-node Kubernetes version? Check: https://tinyurl.com/3889hkvr
+
 ## Prerequisites
 
 Before you begin:
@@ -30,7 +34,7 @@ This deployment creates three Persistent Volume Claims (PVCs) to preserve your d
 
 By default, K3s stores PVC data in cryptically named directories under `/var/lib/kubelet/pods/`. To keep things organized, we'll configure a custom storage location at `/data/k3s-pvc`.
 
-**📖 Detailed Instructions:** See the [Custom Storage Class Configuration Guide](./CUSTOM_STORAGE_CLASS.md) for complete setup steps.
+** Detailed Instructions:** See the [Custom Storage Class Configuration Guide](./CUSTOM_STORAGE_CLASS.md) for complete setup steps.
 
 **Quick Summary:**
 ```bash
@@ -78,7 +82,7 @@ After this setup, use `storageClassName: custom-local-path` in your manifests to
 
 ### Note on step 4.
 The final step in the deployment consists of creating a Grafana Service Account Token.
-This is done through the Grafana API once the container is started and thus requires name resolving for your Grafana container https://tig-grafana.YourDomainOfChoice
+This is done through the Grafana API once the container is started and thus requires name resolving for your Grafana container https://tig-grafana.tig-influx.test
 So this will require you to conduct the following steps on your K3S cluster prior to running the deployment script:
 - Determine your LoadBalancer (traefik) IP: `kubectl get svc -A | grep LoadBalancer` 
 - Configure DNS or host file: https://tig-grafana.tig-influx.test with the external LoadBalancer IP-Address
@@ -90,12 +94,12 @@ If the DNS or host file isn't set prior to deployment the Token creation will fa
 Add these entries to your DNS server (like Pi-hole) or your workstation's hosts file, pointing to your K3s node's IP address:
 
 ```
-<your-node-ip>  tig-explorer.tig-influx.test
-<your-node-ip>  tig-influxdb.tig-influx.test
-<your-node-ip>  tig-grafana.tig-influx.test
+<your-external-loadbalancer-ip>  tig-explorer.tig-influx.test
+<your-external-loadbalancer-ip>  tig-influxdb.tig-influx.test
+<your-external-loadbalancer-ip>  tig-grafana.tig-influx.test
 ```
 
-For example, if your node IP is `192.168.1.100`:
+For example, if your loadbalancer / traefik IP is `192.168.1.100`:
 ```
 192.168.1.100  tig-explorer.tig-influx.test
 192.168.1.100  tig-influxdb.tig-influx.test
